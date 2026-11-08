@@ -1,0 +1,71 @@
+<div
+  class="viewport"
+  tabindex="0"
+  aria-roledescription="carousel"
+  (keydown)="onKey($event)"
+  (mouseenter)="pause()"
+  (mouseleave)="play()"
+  (pointerdown)="down($event)"
+  (pointerup)="up($event)"
+>
+  <div class="track" [style.transform]="offset()">
+    @for (slide of slides(); track slide.src; let i = $index) {
+      <div class="slide" [attr.aria-hidden]="i !== index()">
+        <img [src]="slide.src" [alt]="slide.alt[prefs.lang()]" loading="lazy" draggable="false" (click)="open()">
+      </div>
+    }
+  </div>
+
+  <button
+    type="button"
+    class="zoom"
+    [attr.aria-label]="prefs.lang() === 'en' ? 'Enlarge image' : 'Förstora bild'"
+    (click)="open($event)"
+  >
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+      <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path>
+    </svg>
+  </button>
+
+  <div class="arrows">
+    <button type="button" aria-label="Previous" (click)="prev($event)">←</button>
+    <button type="button" aria-label="Next" (click)="next($event)">→</button>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="dots">
+    @for (slide of slides(); track slide.src; let i = $index) {
+      <button
+        type="button"
+        class="dot"
+        [class.active]="i === index()"
+        [attr.aria-label]="'Slide ' + (i + 1)"
+        (click)="go(i)"
+      >
+        <span [style.transform]="'scaleX(' + fill(i) + ')'"></span>
+      </button>
+    }
+  </div>
+  <span class="count"><span class="c-fg">{{ current() }}</span> / {{ total() }}</span>
+</div>
+
+<dialog #dialog class="lightbox" (close)="onClosed()" (click)="onDialogClick($event)" (keydown)="onDialogKey($event)">
+  @if (zoomed()) {
+    <figure (pointerdown)="down($event)" (pointerup)="up($event)">
+      <img [src]="active().src" [alt]="active().alt[prefs.lang()]" draggable="false">
+      <figcaption>
+        <span class="c-acc">{{ current() }} / {{ total() }}</span>
+        <span>{{ active().alt[prefs.lang()] }}</span>
+      </figcaption>
+    </figure>
+    <button
+      type="button"
+      class="lb-btn lb-close"
+      [attr.aria-label]="prefs.lang() === 'en' ? 'Close' : 'Stäng'"
+      (click)="close()"
+    >✕</button>
+    <button type="button" class="lb-btn lb-prev" aria-label="Previous" (click)="prev($event)">←</button>
+    <button type="button" class="lb-btn lb-next" aria-label="Next" (click)="next($event)">→</button>
+  }
+</dialog>

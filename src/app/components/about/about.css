@@ -1,0 +1,8 @@
+.about { padding: clamp(80px, 12vw, 140px) 0; }
+.layout {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: clamp(32px, 6vw, 80px);
+}
+.body { display: flex; flex-direction: column; gap: 28px; }
+.text { font-size: clamp(17px, 1.6vw, 20px); line-height: 1.7; color: var(--muted); margin: 0; text-wrap: pretty; }
+.facts { font-family: var(--mono); font-size: 14px; line-height: 2; padding: 18px 22px; }

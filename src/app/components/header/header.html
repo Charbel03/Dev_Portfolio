@@ -1,0 +1,35 @@
+<header class="header" data-header>
+  <div class="progress" data-progress></div>
+  <div class="bar">
+    <a href="#top" class="logo">
+      <span class="c-acc">~/</span><span>charbel</span><span class="cursor"></span>
+    </a>
+
+    <nav class="nav" data-hnav>
+      @for (item of navItems; track item.id) {
+        <a [attr.data-nav]="item.id" [href]="'#' + item.id">{{ item.label }}</a>
+      }
+    </nav>
+
+    <div class="actions">
+      <div class="lang" role="group" aria-label="Language">
+        <span class="lang-thumb" aria-hidden="true" [class.is-en]="prefs.lang() === 'en'"></span>
+        <button type="button" [class.on]="prefs.lang() === 'sv'" (click)="prefs.setLang('sv')">SV</button>
+        <button type="button" [class.on]="prefs.lang() === 'en'" (click)="prefs.setLang('en')">EN</button>
+      </div>
+
+      <button type="button" class="theme" aria-label="Toggle theme" (click)="prefs.toggleTheme($event)">
+        <svg width="20" height="20" viewBox="0 0 24 24" class="theme-icon" [class.light]="!dark()">
+          <mask id="moonmask"><rect width="24" height="24" fill="white"></rect><circle class="mask-dot" cy="7" r="7" fill="black"></circle></mask>
+          <circle class="core" cx="12" cy="12" fill="currentColor" mask="url(#moonmask)"></circle>
+          <g class="rays" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="12" y1="1.5" x2="12" y2="3.5"></line><line x1="12" y1="20.5" x2="12" y2="22.5"></line>
+            <line x1="1.5" y1="12" x2="3.5" y2="12"></line><line x1="20.5" y1="12" x2="22.5" y2="12"></line>
+            <line x1="4.6" y1="4.6" x2="6" y2="6"></line><line x1="18" y1="18" x2="19.4" y2="19.4"></line>
+            <line x1="4.6" y1="19.4" x2="6" y2="18"></line><line x1="18" y1="6" x2="19.4" y2="4.6"></line>
+          </g>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>

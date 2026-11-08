@@ -1,0 +1,8 @@
+.page { position: relative; min-height: 100vh; background: var(--bg); color: var(--fg); overflow-x: clip; }
+.spotlight {
+  position: fixed; inset: 0; pointer-events: none; z-index: 1;
+  background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 20%), var(--glow), transparent 65%);
+}
+main { position: relative; z-index: 2; }
+
+@media (hover: none) { .spotlight { display: none; } }

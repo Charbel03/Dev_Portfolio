@@ -1,0 +1,55 @@
+.card {
+  position: relative; display: flex; flex-wrap: wrap; flex-direction: row;
+  border: 1px solid var(--line); border-radius: 16px; background: var(--panel); overflow: hidden;
+  transition: border-color .3s;
+}
+.card:hover { border-color: var(--accent); }
+.card.reverse { flex-direction: row-reverse; }
+
+.media {
+  flex: 1.7 1 520px; min-width: 0; display: flex; flex-direction: column;
+  background: var(--bg2); border-right: 1px solid var(--line);
+}
+.card.reverse .media { border-right: 0; border-left: 1px solid var(--line); }
+
+.browser-bar { display: flex; align-items: center; gap: 8px; padding: 11px 16px; border-bottom: 1px solid var(--line); }
+.browser-bar .win-dots i { width: 10px; height: 10px; }
+.url {
+  flex: 1; min-width: 0; margin-left: 8px; padding: 5px 12px; border-radius: 6px; background: var(--panel);
+  font-family: var(--mono); font-size: 12px; color: var(--muted);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+.info {
+  flex: 1 1 320px; min-width: 0; padding: clamp(22px, 3vw, 36px);
+  display: flex; flex-direction: column; gap: 16px; position: relative;
+}
+.meta {
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 11.5px;
+}
+.badge { padding: 4px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.title { font-family: var(--mono); font-size: clamp(24px, 2.6vw, 32px); line-height: 1.1; letter-spacing: -.03em; margin: 0; }
+.desc { margin: 0; color: var(--muted); line-height: 1.65; font-size: 16px; text-wrap: pretty; }
+
+.terminal {
+  border: 1px solid var(--line); border-radius: 10px; background: var(--bg2); padding: 12px 14px;
+  font-family: var(--mono); font-size: 12.5px; line-height: 1.8; color: var(--muted);
+}
+
+.links {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 6px;
+  font-family: var(--mono); font-size: 13px;
+}
+.links a {
+  padding: 11px 16px; border-radius: 9px; border: 1px solid var(--line); color: var(--fg);
+  transition: transform .2s, border-color .2s;
+}
+.links a:hover { transform: translateY(-2px); border-color: var(--accent); color: var(--fg); }
+.links a.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
+.links a.primary:hover { color: var(--accent-ink); }
+
+/* When stacked on narrow screens, swap the side border for a bottom one */
+@media (max-width: 880px) {
+  .media, .card.reverse .media { border-right: 0; border-left: 0; border-bottom: 1px solid var(--line); }
+}

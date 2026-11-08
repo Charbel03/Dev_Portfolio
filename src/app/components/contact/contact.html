@@ -1,0 +1,28 @@
+<section id="kontakt" data-section class="contact">
+  <div data-parallax="-0.15" class="halo" aria-hidden="true"></div>
+  <div class="wrap wrap-narrow inner">
+    <div data-reveal="0" class="eyebrow">// 06 — contact.sh</div>
+    <h2 data-reveal="80" class="title">
+      <span data-sv>Hör av dig<span class="c-acc">.</span></span>
+      <span data-en>Get in touch<span class="c-acc">.</span></span>
+    </h2>
+    <p data-reveal="140" class="lead">
+      <span data-sv>Har du en roll inom backend eller mjukvaruutveckling? Hör av dig — jag svarar snabbt.</span>
+      <span data-en>Got a backend or software engineering role? Reach out — I reply quickly.</span>
+    </p>
+
+    <div data-reveal="200" class="copy-row">
+      <button type="button" class="copy" (click)="copyEmail()">
+        <span class="c-acc">$</span>
+        <span class="email">{{ profile.email }}</span>
+        <span class="pill" [class.done]="copied()">{{ copyLabel() }}</span>
+      </button>
+    </div>
+
+    <div data-reveal="260" class="links">
+      <a [href]="profile.linkedinUrl" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a [href]="profile.githubUrl" target="_blank" rel="noopener">GitHub ↗</a>
+      <a [href]="cvHref()" download>CV.pdf ↓</a>
+    </div>
+  </div>
+</section>

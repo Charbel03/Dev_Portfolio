@@ -1,0 +1,42 @@
+<article class="card" [class.reverse]="reverse()">
+  <div class="media">
+    <div class="browser-bar">
+      <span class="win-dots"><i></i><i></i><i></i></span>
+      <span class="url">{{ project().urlBar }}</span>
+    </div>
+    <app-carousel [slides]="project().slides" />
+  </div>
+
+  <div class="info">
+    <div class="meta">
+      <span class="c-acc">// {{ number() }} <span class="c-muted">· <span data-sv>{{ project().kind.sv }}</span><span data-en>{{ project().kind.en }}</span></span></span>
+      <span class="badge"><span data-sv>{{ project().badge.sv }}</span><span data-en>{{ project().badge.en }}</span></span>
+    </div>
+
+    <h3 class="title">{{ project().title }}</h3>
+
+    <p class="desc">
+      <span data-sv>{{ project().description.sv }}</span><span data-en>{{ project().description.en }}</span>
+    </p>
+
+    <div class="terminal">
+      @for (line of project().terminal; track $index) {
+        <div>
+          <span [class.c-acc]="line.prefix === '$'" [class.c-dim]="line.prefix !== '$'">{{ line.prefix }}</span>
+          {{ line.text }}
+          @if (line.ok) { <span class="c-acc">{{ line.ok }}</span> }
+        </div>
+      }
+    </div>
+
+    <div class="tags c-fg">
+      @for (t of project().tech; track t) { <span class="tag tag-proj">{{ t }}</span> }
+    </div>
+
+    <div class="links">
+      @for (link of project().links; track link.label) {
+        <a [href]="link.url" target="_blank" rel="noopener" [class.primary]="link.primary">{{ link.label }}</a>
+      }
+    </div>
+  </div>
+</article>

@@ -1,0 +1,66 @@
+<section class="hero">
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <div class="layout">
+    <div class="intro">
+      <div data-intro="0" class="prompt">
+        <span class="pulse"></span>
+        <span><span class="c-acc">charbel&#64;södertälje</span>:<span class="c-blue">~</span>$ whoami</span>
+      </div>
+
+      <h1 data-intro="1" class="name">Charbel<br>Chayeb<span class="c-acc">.</span></h1>
+
+      <p data-intro="2" class="role">
+        Junior Backend Developer <span class="c-dim">&#64;</span> <span class="c-acc">Dibz</span>
+      </p>
+
+      <p data-intro="3" class="lead">
+        <span data-sv>Jag bygger automationer och integrationer i Python och AWS, och följer problemen hela vägen från loggarna till lösningen.</span>
+        <span data-en>I build automation and integrations in Python and AWS, and follow problems all the way from the logs to the fix.</span>
+      </p>
+
+      <div data-intro="4" class="ctas">
+        <a href="#projekt" class="btn btn-primary">
+          <span data-sv>./se-projekt</span><span data-en>./view-projects</span><span>→</span>
+        </a>
+        <a [href]="cvHref()" download class="btn btn-ghost">
+          <span>↓</span><span data-sv>ladda ner CV</span><span data-en>download CV</span>
+        </a>
+      </div>
+    </div>
+
+    <div data-intro="3" class="card-col">
+      <div data-parallax="0.06">
+        <div data-tilt="6" class="code-card">
+          <div class="tilt-glow" aria-hidden="true"></div>
+          <div class="code-head">
+            <span class="win-dots"><i></i><i></i><i></i></span>
+            <span class="file">profile.py</span>
+          </div>
+          <div class="code">
+            <div><span class="c-dim"># profile.py</span></div>
+            <div><span class="c-pink">class</span> <span class="c-blue">Developer</span>:</div>
+            <div>    name     = <span class="c-amber">"Charbel Chayeb"</span></div>
+            <div>    role     = <span class="c-amber">"Backend Developer"</span></div>
+            <div>    level    = <span class="c-amber">"Junior"</span></div>
+            <div>    company  = <span class="c-amber">"Dibz"</span></div>
+            <div>    location = <span class="c-amber">"Södertälje, Sweden"</span></div>
+            <div>    email    = <span class="c-amber">"</span><a [href]="'mailto:' + profile.email" class="str-link">{{ profile.email }}</a><span class="c-amber">"</span></div>
+            <div>    linkedin = <span class="c-amber">"</span><a [href]="profile.linkedinUrl" target="_blank" rel="noopener" class="str-link">{{ linkedinShort }}</a><span class="c-amber">"</span></div>
+            <div>    github   = <span class="c-amber">"</span><a [href]="profile.githubUrl" target="_blank" rel="noopener" class="str-link">{{ githubShort }}</a><span class="c-amber">"</span></div>
+            <div>    stack    = [<span class="c-amber">"Backend"</span>, <span class="c-amber">"Frontend"</span>, <span class="c-amber">"Database"</span>, <span class="c-amber">"Cloud"</span>, <span class="c-amber">"AI"</span>]</div>
+            <div>    open_to_work = <span class="c-pink">True</span></div>
+          </div>
+          <div class="code-foot">
+            <span><span class="c-acc">✓</span> <span data-sv>tillgänglig</span><span data-en>available</span></span>
+            <span>python 3</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#om" aria-label="Scroll" class="scroll">
+    <span>SCROLL</span><span class="scroll-line"></span>
+  </a>
+</section>

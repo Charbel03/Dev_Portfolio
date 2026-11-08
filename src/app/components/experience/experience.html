@@ -1,0 +1,38 @@
+<section id="erfarenhet" data-section class="experience">
+  <div class="wrap wrap-narrow">
+    <div data-reveal="0" class="head">
+      <div class="eyebrow">// 04 — experience.log</div>
+      <h2 class="h2"><span data-sv>Arbetslivserfarenhet</span><span data-en>Professional experience</span></h2>
+    </div>
+
+    <div data-tl class="timeline">
+      <div class="track"></div>
+      <div data-tl-fill class="fill"></div>
+
+      @for (job of jobs; track job.period.en) {
+        <article data-reveal="0" class="job">
+          <span class="node" [class.current]="job.current"></span>
+          <div class="period"><span data-sv>{{ job.period.sv }}</span><span data-en>{{ job.period.en }}</span></div>
+          <h3 class="title"><span data-sv>{{ job.title.sv }}</span><span data-en>{{ job.title.en }}</span></h3>
+          <div class="company">{{ job.company }}</div>
+
+          @if (job.points.length) {
+            <div class="panel details">
+              @for (point of job.points; track $index) {
+                <div class="point">
+                  <span class="chev">›</span>
+                  <span><span data-sv [innerHTML]="point.sv"></span><span data-en [innerHTML]="point.en"></span></span>
+                </div>
+              }
+              @if (job.tags.length) {
+                <div class="tags c-muted">
+                  @for (tag of job.tags; track tag) { <span class="tag tag-work">{{ tag }}</span> }
+                </div>
+              }
+            </div>
+          }
+        </article>
+      }
+    </div>
+  </div>
+</section>
